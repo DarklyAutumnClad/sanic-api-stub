@@ -5,7 +5,7 @@ import json
 
 
 app = Sanic(__name__)
-pinned = json.dumps({
+myresponse = json.dumps({
     "SomeElement": "SomeValue",
     "SomeArrayName": [
         "arrayvalue1",
@@ -15,7 +15,7 @@ pinned = json.dumps({
 
 @app.route('/api/V2/multimethodexample', methods=["POST", "GET"])
 async def multimethodexample(request):
-    return response.text(pinned, status=200, headers=None,
+    return response.text(myresponse, status=200, headers=None,
                          content_type='application/json')
 
 @app.route('/api/V2/HealthCheck/', methods=["GET"])
